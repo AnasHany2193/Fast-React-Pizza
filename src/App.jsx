@@ -11,13 +11,18 @@ import CreateOrder from "./features/order/CreateOrder.jsx";
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
+    errorElement: <Error />,
     children: [
       { path: "/", element: <Home /> },
-      { path: "/menu", element: <Menu />, loader: MenuLoader },
+      {
+        path: "/menu",
+        element: <Menu />,
+        loader: MenuLoader,
+        errorElement: <Error />,
+      },
       { path: "/cart", element: <Cart /> },
       { path: "/order/:orderId", element: <Order /> },
       { path: "/order/new", element: <CreateOrder /> },
-      { path: "*", element: <Error /> },
     ],
   },
 ]);
