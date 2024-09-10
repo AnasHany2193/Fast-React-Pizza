@@ -5,7 +5,7 @@ import SearchOrder from "../features/order/SearchOrder";
 
 function Header() {
   return (
-    <header className="bg-yellow-500 uppercase">
+    <header className="border-b border-stone-400 bg-yellow-500 p-4 uppercase">
       <Link to="/" className="tracking-widest">
         Fast React Pizza Co.
       </Link>
