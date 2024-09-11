@@ -4,11 +4,10 @@ import Home from "./ui/Home.jsx";
 import Error from "./ui/Error.jsx";
 import AppLayout from "./ui/AppLayout.jsx";
 import Cart from "./features/cart/Cart.jsx";
+import CreateOrder from "./features/order/CreateOrder.jsx";
 import Menu, { loader as menuLoader } from "./features/menu/Menu";
 import Order, { loader as orderLoader } from "./features/order/Order.jsx";
-import CreateOrder, {
-  action as CreateOrderAction,
-} from "./features/order/CreateOrder.jsx";
+import { action as CreateOrderAction } from "./utils/orderActions.js";
 
 const router = createBrowserRouter([
   {
