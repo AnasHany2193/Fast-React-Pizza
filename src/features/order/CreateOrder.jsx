@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Form, redirect, useActionData, useNavigation } from "react-router-dom";
 
 import store from "../../store";
 import Button from "../../ui/Button";
 import EmptyCart from "../cart/EmptyCart";
-import { getUsername } from "../user/userSlice";
+import { fetchAddress, getUsername } from "../user/userSlice";
 import { formatCurrency } from "../../utils/helpers";
 import { createOrder } from "../../services/apiRestaurant";
 import { clearCart, getCart, getTotalCartprice } from "../cart/cartSlice";
@@ -17,6 +17,7 @@ const isValidPhone = (str) =>
   );
 
 function CreateOrder() {
+  const dispatch = useDispatch();
   const navigation = useNavigation();
   const formErrors = useActionData();
   const username = useSelector(getUsername);
@@ -35,6 +36,8 @@ function CreateOrder() {
       <h2 className="mb-8 text-xl font-semibold">
         Ready to order? Let&apos;s go!
       </h2>
+
+      <button onClick={() => dispatch(fetchAddress())}>Get Posistion</button>
 
       {/* <Form method="POST" action="/order/new"> */}
       <Form method="POST">
