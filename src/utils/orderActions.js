@@ -1,8 +1,8 @@
 import { redirect } from "react-router-dom";
 
-import store from "../../store";
-import { clearCart } from "../cart/cartSlice";
-import { createOrder } from "../../services/apiRestaurant";
+import store from "../store";
+import { createOrder } from "../services/apiRestaurant";
+import { clearCart } from "../features/cart/cartSlice";
 
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
