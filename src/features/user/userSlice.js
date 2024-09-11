@@ -28,9 +28,10 @@ const userSlice = createSlice({
         state.address = action.payload.address;
         state.status = "idle";
       })
-      .addCase(fetchAddress.rejected, (state, action) => {
+      .addCase(fetchAddress.rejected, (state) => {
         state.status = "error";
-        state.error = action.error.message;
+        state.error =
+          "There was a problem getting your address. Make sure to fill this field!";
       }),
 });
 
@@ -55,10 +56,12 @@ export const fetchAddress = createAsyncThunk(
     const address = `${addressObj?.locality}, ${addressObj?.city} ${addressObj?.postcode}, ${addressObj?.countryName}`;
 
     // 3) Then we return an object with the data that we are interested in
-    // payload of the FULFAILD state
+    // payload of the FULFILLED state
     return { position, address };
   },
 );
+
+export const getUser = (state) => state.user;
 
 export const getUsername = (state) => state.user.username;
 
